@@ -1,5 +1,5 @@
 # Travelling Merchant Checker
-Checks the Runescape wiki for items sold in the Travelling Merchant's Shop
+Checks the Runescape wiki for items sold in the Travelling Merchant's Shop, and notifies you if that item is being sold today
 
 Still a bit rough around the edges
 
