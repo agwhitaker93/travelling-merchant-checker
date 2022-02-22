@@ -4,7 +4,7 @@ Checks the Runescape wiki for items sold in the Travelling Merchant's Shop, and 
 Still a bit rough around the edges
 
 # Usage (Subject to change)
-* Clone this repository
+* Download this repository
 * Open `items.txt` in a text editor
 * Add the name of the item you want to check on a new line
 
