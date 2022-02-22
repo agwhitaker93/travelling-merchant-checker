@@ -3,7 +3,7 @@
 const https = require('https')
 
 module.exports = {
-    makeRequest: async (url) => {
+    makeRequest: (url) => {
         return new Promise((resolve, reject) => {
             const req = https.request(url, (res) => {
                 let result = ''

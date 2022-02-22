@@ -3,24 +3,20 @@
 const path = require('path')
 
 const { Notifier } = require('./notify.js')
-const { makeRequest } = require('./get-results.js')
+const { makeRequest } = require('./results.js')
 const { parseResult } = require('./parse.js')
 const { processResults } = require('./process.js')
-const { openWebPage } = require('./open-webpage.js')
+const { openWebPage } = require('./webpage.js')
+const { imagePath } = require('./image.js')
 
 module.exports = {
     checkWiki: async (itemName) => {
         const joinedItemName = itemName.split(' ').join('_')
-        const iconPath = path.join(__dirname, '..', 'resources', `${joinedItemName}.png`)
+        const iconPath = await imagePath(joinedItemName)
         const wikiApiUrl = `https://runescape.wiki/api.php?action=parse&format=json&prop=text&page=${joinedItemName}`
         const wikiPageUrl = `https://runescape.wiki/w/${joinedItemName}`
 
         const notifier = new Notifier(iconPath)
-
-        notifier.notify({
-            title: `Checking ${itemName}`,
-            message: `Performing check against wiki for ${itemName}`
-        })
 
         const result = await makeRequest(wikiApiUrl)
         const parsed = parseResult(result)
